@@ -35,7 +35,7 @@ class MenuItemController extends BaseApiController
         if ($search = $request->input('search')) {
             $query->where(function ($q) use ($search) {
                 $q->where('name', 'like', "%{$search}%")
-                  ->orWhere('description', 'like', "%{$search}%");
+                    ->orWhere('description', 'like', "%{$search}%");
             });
         }
 
@@ -83,10 +83,10 @@ class MenuItemController extends BaseApiController
                     required: ['category_id', 'name', 'price'],
                     properties: [
                         new OA\Property(property: 'category_id', type: 'string', example: '65e...'),
-                        new OA\Property(property: 'name', type: 'string', example: 'Truffle Mushroom Burger'),
-                        new OA\Property(property: 'description', type: 'string', example: 'Brioche bun with Angus beef'),
-                        new OA\Property(property: 'price', type: 'number', format: 'float', example: 14.99),
-                        new OA\Property(property: 'image_url', type: 'string', example: 'https://example.com/burger.jpg'),
+                        new OA\Property(property: 'name', type: 'string', example: 'Sinigang na Baboy sa Sampalok'),
+                        new OA\Property(property: 'description', type: 'string', example: 'Tender pork belly simmered in tamarind broth with kangkong and radish'),
+                        new OA\Property(property: 'price', type: 'number', format: 'float', example: 320.00),
+                        new OA\Property(property: 'image_url', type: 'string', example: 'https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=800'),
                         new OA\Property(property: 'availability', type: 'boolean', example: true),
                         new OA\Property(property: 'preparation_time', type: 'integer', example: 20),
                     ]
@@ -228,7 +228,7 @@ class MenuItemController extends BaseApiController
 
         return $this->sendResponse(
             new MenuItemResource($item->fresh('category')),
-            'Menu item availability updated to ' . ($newAvailability ? 'available' : 'unavailable')
+            'Menu item availability updated to '.($newAvailability ? 'available' : 'unavailable')
         );
     }
 }

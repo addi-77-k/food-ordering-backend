@@ -33,8 +33,8 @@ class CustomerController extends BaseApiController
         if ($search = $request->input('search')) {
             $query->where(function ($q) use ($search) {
                 $q->where('name', 'like', "%{$search}%")
-                  ->orWhere('email', 'like', "%{$search}%")
-                  ->orWhere('phone', 'like', "%{$search}%");
+                    ->orWhere('email', 'like', "%{$search}%")
+                    ->orWhere('phone', 'like', "%{$search}%");
             });
         }
 
@@ -71,11 +71,11 @@ class CustomerController extends BaseApiController
                 schema: new OA\Schema(
                     required: ['name', 'email', 'password'],
                     properties: [
-                        new OA\Property(property: 'name', type: 'string', example: 'Alice Smith'),
-                        new OA\Property(property: 'email', type: 'string', format: 'email', example: 'alice@example.com'),
+                        new OA\Property(property: 'name', type: 'string', example: 'Maria Clara Santos'),
+                        new OA\Property(property: 'email', type: 'string', format: 'email', example: 'maria.santos@example.ph'),
                         new OA\Property(property: 'password', type: 'string', format: 'password', example: 'password123'),
-                        new OA\Property(property: 'phone', type: 'string', example: '+15551234567'),
-                        new OA\Property(property: 'address', type: 'string', example: '742 Evergreen Terrace'),
+                        new OA\Property(property: 'phone', type: 'string', example: '+63 918 234 5678'),
+                        new OA\Property(property: 'address', type: 'string', example: '45 Katipunan Avenue, Quezon City'),
                         new OA\Property(property: 'status', type: 'string', enum: ['active', 'inactive', 'suspended']),
                     ]
                 )

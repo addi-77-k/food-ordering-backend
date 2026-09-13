@@ -94,11 +94,11 @@ class OrderController extends BaseApiController
                                 new OA\Property(property: 'quantity', type: 'integer', example: 2),
                             ])
                         ),
-                        new OA\Property(property: 'delivery_address', type: 'string', example: '123 Oak Lane'),
-                        new OA\Property(property: 'delivery_fee', type: 'number', format: 'float', example: 4.99),
+                        new OA\Property(property: 'delivery_address', type: 'string', example: 'Unit 12B, Salcedo Village, Makati City'),
+                        new OA\Property(property: 'delivery_fee', type: 'number', format: 'float', example: 49.00),
                         new OA\Property(property: 'discount', type: 'number', format: 'float', example: 0.00),
-                        new OA\Property(property: 'payment_method', type: 'string', enum: ['cash_on_delivery', 'card', 'online']),
-                        new OA\Property(property: 'notes', type: 'string'),
+                        new OA\Property(property: 'payment_method', type: 'string', enum: ['cash_on_delivery', 'card', 'online'], example: 'cash_on_delivery'),
+                        new OA\Property(property: 'notes', type: 'string', example: 'Paki-iwan po sa may lobby guard, salamat po.'),
                     ]
                 )
             )
@@ -114,11 +114,12 @@ class OrderController extends BaseApiController
 
         try {
             $order = $this->orderService->createOrder($request->validated(), $customer);
+
             return $this->sendResponse(new OrderResource($order->load('customer')), 'Order placed successfully', 201);
         } catch (ValidationException $e) {
             return $this->sendError($e->getMessage(), $e->errors(), 422);
         } catch (\Throwable $e) {
-            return $this->sendError('Failed to create order: ' . $e->getMessage(), [], 500);
+            return $this->sendError('Failed to create order: '.$e->getMessage(), [], 500);
         }
     }
 

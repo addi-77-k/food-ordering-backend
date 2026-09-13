@@ -24,12 +24,12 @@ class AuthController extends BaseApiController
                 schema: new OA\Schema(
                     required: ['name', 'email', 'password', 'password_confirmation'],
                     properties: [
-                        new OA\Property(property: 'name', type: 'string', example: 'John Doe'),
-                        new OA\Property(property: 'email', type: 'string', format: 'email', example: 'john@example.com'),
+                        new OA\Property(property: 'name', type: 'string', example: 'Juan dela Cruz'),
+                        new OA\Property(property: 'email', type: 'string', format: 'email', example: 'juan.delacruz@example.ph'),
                         new OA\Property(property: 'password', type: 'string', format: 'password', example: 'password123'),
                         new OA\Property(property: 'password_confirmation', type: 'string', format: 'password', example: 'password123'),
-                        new OA\Property(property: 'phone', type: 'string', example: '+1234567890'),
-                        new OA\Property(property: 'address', type: 'string', example: '123 Flavor Street'),
+                        new OA\Property(property: 'phone', type: 'string', example: '+63 917 123 4567'),
+                        new OA\Property(property: 'address', type: 'string', example: 'Unit 12B, Salcedo Village, Makati City'),
                     ]
                 )
             )
@@ -75,7 +75,7 @@ class AuthController extends BaseApiController
                 schema: new OA\Schema(
                     required: ['email', 'password'],
                     properties: [
-                        new OA\Property(property: 'email', type: 'string', format: 'email', example: 'john@example.com'),
+                        new OA\Property(property: 'email', type: 'string', format: 'email', example: 'juan.delacruz@example.ph'),
                         new OA\Property(property: 'password', type: 'string', format: 'password', example: 'password123'),
                     ]
                 )
@@ -150,9 +150,9 @@ class AuthController extends BaseApiController
                 mediaType: 'application/json',
                 schema: new OA\Schema(
                     properties: [
-                        new OA\Property(property: 'name', type: 'string', example: 'Johnathan Doe'),
-                        new OA\Property(property: 'phone', type: 'string', example: '+1987654321'),
-                        new OA\Property(property: 'address', type: 'string', example: '456 Gourmet Avenue'),
+                        new OA\Property(property: 'name', type: 'string', example: 'Juan dela Cruz'),
+                        new OA\Property(property: 'phone', type: 'string', example: '+63 917 123 4567'),
+                        new OA\Property(property: 'address', type: 'string', example: 'Unit 12B, Salcedo Village, Makati City'),
                     ]
                 )
             )

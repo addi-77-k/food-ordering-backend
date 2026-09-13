@@ -35,7 +35,7 @@ class CategoryController extends BaseApiController
         if ($search = $request->input('search')) {
             $query->where(function ($q) use ($search) {
                 $q->where('name', 'like', "%{$search}%")
-                  ->orWhere('description', 'like', "%{$search}%");
+                    ->orWhere('description', 'like', "%{$search}%");
             });
         }
 
@@ -77,9 +77,9 @@ class CategoryController extends BaseApiController
                 schema: new OA\Schema(
                     required: ['name'],
                     properties: [
-                        new OA\Property(property: 'name', type: 'string', example: 'Artisan Pizzas'),
-                        new OA\Property(property: 'description', type: 'string', example: 'Hand-stretched sourdough pizzas'),
-                        new OA\Property(property: 'image_url', type: 'string', example: 'https://example.com/pizza.jpg'),
+                        new OA\Property(property: 'name', type: 'string', example: 'Mga Pangunahing Ulam'),
+                        new OA\Property(property: 'description', type: 'string', example: 'Tradisyonal na lutong-bahay na mga ulam na niluto sa mabagal na apoy'),
+                        new OA\Property(property: 'image_url', type: 'string', example: 'https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=800'),
                         new OA\Property(property: 'status', type: 'string', enum: ['active', 'inactive'], example: 'active'),
                     ]
                 )

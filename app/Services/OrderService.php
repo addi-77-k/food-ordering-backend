@@ -87,7 +87,7 @@ class OrderService
         $discount = isset($data['discount']) ? (float) $data['discount'] : 0.00;
         $total = max(0.0, round($subtotal + $deliveryFee - $discount, 2));
 
-        $orderNumber = 'ORD-' . strtoupper(Str::random(4)) . '-' . rand(1000, 9999);
+        $orderNumber = 'ORD-'.strtoupper(Str::random(4)).'-'.rand(1000, 9999);
 
         $initialStatus = 'pending';
         $history = [

@@ -10,6 +10,7 @@ class Admin extends Authenticatable
     use HasApiTokens;
 
     protected $connection = 'mongodb';
+
     protected $collection = 'admins';
 
     protected $fillable = [

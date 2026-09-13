@@ -11,6 +11,7 @@ class Customer extends Authenticatable
     use HasApiTokens;
 
     protected $connection = 'mongodb';
+
     protected $collection = 'customers';
 
     protected $fillable = [
